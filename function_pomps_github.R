@@ -23,13 +23,17 @@ bd2 <- iris
 head(bd2)
 
 pomps <- function(data, variables) {
+  # this "if" allows you to enter variable names or column numbers
+  if (is.numeric(variables)) {
+    variables <- names(data)[variables]
+  }
   for (var in variables) {
     # creates the name of the new variable with the extension _p
     new_var <- paste0(var, "_p")
     
     # Calculate the new variable using the formula provided
     data[[new_var]] <- ((data[[var]] - min(data[[var]], na.rm = TRUE)) / 
-      (max(data[[var]], na.rm = TRUE) - min(data[[var]], na.rm = TRUE))) * 100
+                          (max(data[[var]], na.rm = TRUE) - min(data[[var]], na.rm = TRUE))) * 100
   }
   return(data)
 }
