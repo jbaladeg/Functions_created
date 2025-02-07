@@ -59,3 +59,12 @@ print(efa_result$loadings, sort=TRUE)
 modelo_cfa <- write_model_cfa(efa_result)
 cat(modelo_cfa, "\n")
 
+#4. now, you can use this result to create yor model for the CFA, just copy-paste and adapt:
+model_CFA='
+ML1 =~ C5 + E1 + E2 + N4
+ML2 =~ N1 + N2 + N3 + N5
+ML3 =~ C1 + C2 + C3 + E5
+ML4 =~ E3 + O1 + O3 + O4
+ML5 =~ A2 + A3 + A4 + A5
+ML6 =~ A1 + C4 + E4 + O2 + O5
+'
